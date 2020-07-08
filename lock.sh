@@ -8,7 +8,9 @@
 # makes the neofetch, and scrots it (delay there for proccesing, change it to your pc's speed)
 # urxvt +sb -name lock -e neofetch --song_shorthand on --source ~/Images/fetch/1197b22-1.jpg --scrot_cmd 'scrot -z -u -m -d 0 /tmp/lock.png' -s & sleep 1.7; kill $!
 
-urxvt +tr -e sh -c "neofetch;i3-msg floating enable > /dev/zero;scrot -o -u -d 1 /tmp/lock.png;sleep 2"&sleep 1&
+# urxvt +th -e sh -c "i3-msg floating enable > /dev/zero;neofetch --w3m ~/Wallpaper/lock-icon/129771.jpg;scrot -o -u -d 4 /tmp/lock.png;sleep 2"&sleep &
+
+urxvt -depth 0 -bg "#141c21" -e sh -c "i3-msg floating enable > /dev/zero;neofetch --w3m ~/Wallpaper/lock-icon/129771.jpg;scrot -o -u /tmp/lock.png;sleep 2"&sleep 3 &
 
 # turns compton back on, and waits a sec (again, just giving it a sec to load)
 # compton -b & sleep .3
