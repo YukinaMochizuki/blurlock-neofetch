@@ -40,7 +40,7 @@ TMPBG=/tmp/screen.png
 # Makes the neofetch, and scrots it (delay there for proccesing, change it to your pc's speed)
 echo "urxvt $transparency_type -bg \"$backgroud\" -e sh -c \"i3-msg floating enable > /dev/zero;${neofetch_command};scrot -o -u /tmp/lock.png;sleep 4 \"&" > /tmp/scort-neofetch.sh
 
-bash ./scort-neofetch.sh &
+bash /tmp/scort-neofetch.sh &
 
 # takes a screenshot
 scrot -o /tmp/screen.png
