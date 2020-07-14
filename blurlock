@@ -3,19 +3,21 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -b backgroud -t {real | fake | none} -n neofetch_command"
-   echo -e "\t-b Description of what is parameterA"
-   echo -e "\t-t Description of what is parameterB"
-   echo -e "\t-n Description of what is parameterC"
+   echo "Usage: $0 [OPTION]"
+   echo -e "\t-h, --help                 Display this help and exit"
+   echo -e "\t-b, --backgroud HEXCOLOR   Terminal's backgroud (default "#141c21")"
+   echo -e "\t-t, --transparency TYPE    Turn off rxvt transparency option (default: none)"
+   echo -e "\t                           TYPE is one of real, fake, none"
+   echo -e "\t-c, --command CMD          Take terminal screenshot after this command (default: neofetch)"
    exit 1 # Exit script after printing help
 }
 
-while getopts "b:t:n:" opt
+while getopts "b:t:c:" opt
 do
    case "$opt" in
       b | backgroud) backgroud="$OPTARG" ;;
-      t | transparency_type) transparency_type="$OPTARG" ;;
-      n | neofetch_command) neofetch_command="$OPTARG" ;;
+      t | transparency) transparency_type="$OPTARG" ;;
+      c | command) neofetch_command="$OPTARG" ;;
       ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
    esac
 done
